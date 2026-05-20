@@ -1,0 +1,104 @@
+.app-root{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+:root{
+  --brand-50: #e9f2ff;
+  --brand-100: #d6e9ff;
+  --brand-500: #0d6efd;
+  --muted: #6c757d;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --accent: #0b5ed7;
+  --max-width: 1200px;
+}
+
+html,body,#root{ height:100% }
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--bg), var(--surface));
+  color: #0f1724;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{ max-width: var(--max-width) }
+
+.app-content{
+  flex: 1 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.app-footer{
+  flex-shrink: 0;
+}
+
+/* small tweaks for forms */
+.card .card-body form .form-control:focus{
+  box-shadow: 0 0 0 0.15rem rgba(13,110,253,0.25);
+}
+
+.brand-highlight{ color: var(--brand-500); font-family: Poppins, Inter, sans-serif }
+
+.site-header{ background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); backdrop-filter: blur(6px); }
+.navbar-brand{ font-family: Poppins, Inter, sans-serif; letter-spacing: 0.3px }
+.nav-link{ color: var(--muted) }
+.nav-link{ color: var(--muted); transition: color 160ms ease, background 160ms ease }
+.nav-link.active{ color: var(--brand-500); font-weight:700; background: rgba(13,110,253,0.04) }
+.nav-link:hover{ color: var(--accent); background: rgba(13,110,253,0.03) }
+
+.fw-semibold{ font-weight:600 }
+
+.btn-primary{
+  background: linear-gradient(90deg,var(--brand-500), var(--accent));
+  border: none;
+  box-shadow: 0 4px 14px rgba(13,110,253,0.12);
+}
+
+.card{ border: none }
+
+.site-logo{
+  display:inline-flex; align-items:center; gap:10px; font-weight:700;
+}
+.site-logo svg{ height:28px; width:28px }
+.site-logo span{ line-height:1 }
+.site-logo span span{ font-size:1rem }
+.site-logo span small{ font-size:11px }
+
+/* tighten header spacing and smaller action buttons */
+.site-header .navbar{ padding-top:0.4rem; padding-bottom:0.4rem }
+.site-header .navbar-brand{ font-size:1.05rem }
+.site-header .btn{ padding: .32rem .6rem; font-size:0.85rem }
+
+.page-title{ font-size: 1.5rem; font-weight: 600 }
+
+/* Carousel */
+.carousel-img{ height: 320px; object-fit: cover; border-radius: .5rem; }
+
+/* Avatars */
+.avatar{ width:48px; height:48px; border-radius:50%; object-fit:cover; }
+
+/* Subtle float animation for decorative elements */
+.float{ animation: float 6s ease-in-out infinite; }
+@keyframes float{
+  0%{ transform: translateY(0px) }
+  50%{ transform: translateY(-8px) }
+  100%{ transform: translateY(0px) }
+}
+
+/* Fade-in for rows */
+.fade-in{ animation: fadeIn 400ms ease both }
+@keyframes fadeIn{
+  from{ opacity: 0; transform: translateY(6px) }
+  to{ opacity: 1; transform: translateY(0) }
+}
+
+/* Hover effect on table rows */
+table.table tbody tr:hover{ background: rgba(13,110,253,0.03); transform: translateX(2px); transition: all 160ms ease }
+
+/* Carousel caption tweak */
+.carousel-caption h5{ font-weight:700; letter-spacing:0.2px }
+.carousel-caption p{ opacity:0.9 }

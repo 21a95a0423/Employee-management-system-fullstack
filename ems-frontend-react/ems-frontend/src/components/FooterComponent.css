@@ -1,0 +1,21 @@
+.app-footer{
+  background: linear-gradient(180deg, rgba(11,26,43,0.98), rgba(7,17,38,0.98));
+  color: rgba(230,238,248,0.95);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 2rem;
+  padding-bottom: 1.2rem;
+}
+
+.app-footer h6{ color: #eaf4ff }
+
+.app-footer a{
+  color: rgba(207,232,255,0.95);
+  text-decoration: none;
+}
+
+.app-footer a:hover{ text-decoration: underline }
+
+.footer-links li{ margin-bottom: 6px }
+
+.social-icons{ display:flex; gap:10px }
+.social-icons a{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background: rgba(255,255,255,0.03); color: #fff }

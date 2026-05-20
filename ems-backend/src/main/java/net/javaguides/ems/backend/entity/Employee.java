@@ -1,15 +1,8 @@
 package net.javaguides.ems.backend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -22,4 +15,66 @@ public class Employee {
     private String LastName;
     @Column(name = "Email_Id" , unique = true)
     private String Email;
+    @Column(name = "Password")
+    private  String password;
+    public Employee() {
+    }
+
+    public Employee(Long id, String firstName, String lastName, String email, String password) {
+        this.id = id;
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        this.password = password;
+    }
+
+
+
+    public String getFirstName() {
+        return FirstName;
+
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
+
+
+
+
 }

@@ -1,0 +1,37 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ems-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "Ram@21a9"
+      MYSQL_DATABASE: ems_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    image: ems-backend:latest
+    container_name: ems-backend
+    restart: always
+    ports:
+      - "8081:8080"
+    environment:
+      DB_URL: "jdbc:mysql://mysql:3306/ems_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
+      DB_USERNAME: root
+      DB_PASSWORD: "Ram@21a9"
+    depends_on:
+      - mysql
+
+  frontend:
+    image: ems-frontend:latest
+    container_name: ems-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:

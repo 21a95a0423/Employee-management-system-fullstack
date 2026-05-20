@@ -29,6 +29,6 @@ employee-management-system-fullstack/
 docker compose up --build
 
 Frontend: http://localhost:3000
-Backend: http://localhost:8081
+Backend: [http://localhost:8081](http://localhost:8080/api/employee)
 MySQL: localhost:3307
 

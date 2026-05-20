@@ -33,7 +33,7 @@ Backend: http://localhost:8080
 MySQL: localhost:3307
 ## Deploy Frontend and Backend Using GitHub Actions on AWS EC2
 
-Since you want to deploy your Employee Management System automatically using GitHub Actions, here is the complete workflow.
+ Deploy the Employee Management System automatically using GitHub Actions, here is the complete workflow.
 
 ---
 

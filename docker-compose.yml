@@ -12,7 +12,7 @@ services:
       - mysql_data:/var/lib/mysql
 
   backend:
-    image: ems-backend:latest
+    build: ./backend
     container_name: ems-backend
     restart: always
     ports:
@@ -25,7 +25,7 @@ services:
       - mysql
 
   frontend:
-    image: ems-frontend:latest
+    build: ./frontend
     container_name: ems-frontend
     restart: always
     ports:

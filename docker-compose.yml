@@ -25,7 +25,7 @@ services:
       - mysql
 
   frontend:
-    build: ./ems-frontend
+    build: ./ems-frontend-react
     container_name: ems-frontend
     restart: always
     ports:

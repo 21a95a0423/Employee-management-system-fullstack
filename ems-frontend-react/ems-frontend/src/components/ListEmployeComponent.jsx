@@ -81,17 +81,18 @@ const ListEmployeComponent = ()=>{
         <button type="button" className="btn btn-primary p-2 ms-auto" onClick={()=>addNewEmployee()}>Add Employee</button>
       </div>
 
-      <table className="table table-striped table-bordered align-middle">
-        <thead>
-          <tr>
-            <th>EmployeeId</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className="table-card">
+        <table className="table table-custom table-hover align-middle">
+          <thead>
+            <tr>
+              <th>EmployeeId</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
           {
             employees.map(employee=>(
               <tr key={employee.id} className="fade-in">
@@ -99,15 +100,16 @@ const ListEmployeComponent = ()=>{
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.email}</td>
-                <td>
-                  <button className="btn btn-info me-2" onClick={()=>updateEmployee(employee.id)}>Update</button>
-                  <button className="btn btn-danger" onClick={()=>removeEmployee(employee.id)}>Delete</button>
+                <td className="table-actions">
+                  <button className="btn btn-info btn-sm me-2" onClick={()=>updateEmployee(employee.id)}>Update</button>
+                  <button className="btn btn-danger btn-sm" onClick={()=>removeEmployee(employee.id)}>Delete</button>
                 </td>
               </tr>
             ))
           }
         </tbody>
       </table>
+      </div>
     </div>
   )
 };export default ListEmployeComponent;

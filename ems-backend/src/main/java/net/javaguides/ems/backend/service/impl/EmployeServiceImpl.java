@@ -10,6 +10,7 @@ import net.javaguides.ems.backend.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -17,12 +18,24 @@ import java.util.stream.Collectors;
 public class EmployeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
-    public EmployeeDto createEmployee(EmployeeDto employeeDto){
+    @Override
+    // EmployeeServiceImpl.java
+
+    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+
+        // Check if email already exists
+        Optional<Employee> existingEmployee =
+                employeeRepository.findByEmail(employeeDto.getEmail());
+
+        if (existingEmployee.isPresent()) {
+            throw new RuntimeException("Email already exists");
+        }
+
         Employee employee = EmployeeMapper.maptoEmployee(employeeDto);
-        Employee savedEmployee= employeeRepository.save(employee);
+        Employee savedEmployee = employeeRepository.save(employee);
+
         return EmployeeMapper.maptoEmployeeDto(savedEmployee);
     }
-
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {//before creating the method first go exception and create custum exception
        Employee employee= employeeRepository.findById(employeeId).orElseThrow(()->new ResourceNotFoundException("Employee not exist  with given Id : "+employeeId));

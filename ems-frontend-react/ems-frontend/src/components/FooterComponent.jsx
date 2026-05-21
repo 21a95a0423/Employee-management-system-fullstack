@@ -23,7 +23,7 @@ const FooterComponent = () => {
           <div className="col-md-4 mb-3">
             <h6 className="fw-bold">Contact</h6>
             <h5 className="small mb-1">Email: ramadabala30@gmail.com</h5>
-            <h5 className="small">Phone: +1 6304493800</h5>
+            <h5 className="small">Phone: +91 6304493800</h5>
           </div>
         </div>
 

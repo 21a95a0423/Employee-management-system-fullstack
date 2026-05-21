@@ -39,11 +39,29 @@ const EmployeeComponent = ()=>{
         })
        }
         else{
-          createEmployee(employee).then((response)=>{
-        navigator('/employees');
-      }).catch(error=>{
-        console.log(error);
-      })
+        // Replace your createEmployee() catch block in EmployeeComponent.jsx
+
+createEmployee(employee)
+  .then((response) => {
+    navigator('/employees');
+  })
+  .catch((error) => {
+    console.log(error);
+
+    // Check if backend returned "Email already exists"
+    if (
+      error.response &&
+      error.response.data &&
+      error.response.data.message
+    ) {
+      if (error.response.data.message === "Email already exists") {
+        seterrors({
+          ...errors,
+          email: "Email already exists"
+        });
+      }
+    }
+  });
         }
       
 
@@ -74,7 +92,14 @@ const EmployeeComponent = ()=>{
       errorsCopy.email = "Email is required";
       valid = false;
     }else{
-      errorsCopy.email = "";
+      // basic email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailRegex.test(email)){
+        errorsCopy.email = "Enter a valid email address";
+        valid = false;
+      }else{
+        errorsCopy.email = "";
+      }
     }
 
     seterrors(errorsCopy);

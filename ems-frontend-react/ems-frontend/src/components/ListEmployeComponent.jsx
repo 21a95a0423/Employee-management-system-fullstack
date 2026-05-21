@@ -32,6 +32,7 @@ const ListEmployeComponent = ()=>{
 
   function removeEmployee(id){
     deleteEmployee(id).then((Response)=>{
+      window.alert('Employee deleted successfully');
       getAllEmployees();
     }).catch(error=>{
       console.error(error)

@@ -13,8 +13,8 @@ public class Employee {
     private String FirstName;
     @Column(name = "Last_Name")
     private String LastName;
-    @Column(name = "Email_Id" , unique = true)
-    private String Email;
+    @Column(name = "email" , unique = true, nullable = false)
+    private String email;
     @Column(name = "Password")
     private  String password;
     public Employee() {
@@ -22,9 +22,9 @@ public class Employee {
 
     public Employee(Long id, String firstName, String lastName, String email, String password) {
         this.id = id;
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.email = email;
         this.password = password;
     }
 
@@ -56,11 +56,11 @@ public class Employee {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
